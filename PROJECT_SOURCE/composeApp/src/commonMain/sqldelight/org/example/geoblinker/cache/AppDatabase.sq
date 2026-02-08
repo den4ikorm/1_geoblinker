@@ -1,0 +1,23 @@
+CREATE TABLE DeviceEntity (
+    id TEXT NOT NULL PRIMARY KEY,
+    imei TEXT NOT NULL,
+    name TEXT NOT NULL,
+    isConnected INTEGER NOT NULL,
+    registrationPlate TEXT NOT NULL,
+    modelName TEXT NOT NULL,
+    powerRate INTEGER NOT NULL,
+    speed REAL NOT NULL,
+    lat REAL NOT NULL,
+    lng REAL NOT NULL,
+    lastUpdate INTEGER NOT NULL
+);
+
+insertDevice:
+INSERT OR REPLACE INTO DeviceEntity(id, imei, name, isConnected, registrationPlate, modelName, powerRate, speed, lat, lng, lastUpdate)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectAllDevices:
+SELECT * FROM DeviceEntity;
+
+selectDeviceById:
+SELECT * FROM DeviceEntity WHERE id = ?;
